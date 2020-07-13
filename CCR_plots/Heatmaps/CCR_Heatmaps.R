@@ -22,8 +22,7 @@ library(tidyr)
 
 ### Getting data filtered selected for plots 
 
-#setwd("C:/Users/Owner/Dropbox/2018_Data_RPM/CTD_2018/2018 CTD Files_csv/BVRsite50")
-
+#need new way to read in CTD, to large for github 
 ctda <- read_csv("./CCR_plots/CTD_final_2013_2019.csv", col_types = cols(.default = "d", Reservoir = "c", Date = "T"))
 head(ctda)
 
