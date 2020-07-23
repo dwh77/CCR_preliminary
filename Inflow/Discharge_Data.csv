@@ -1,0 +1,5 @@
+"Date","Site","Discharge_m3_s","Flowmate_ID","Notes"
+2020-07-15,"HPB",0.00196,"FWE","channel width = 3.5m, lat/long: (37.3646, -79.9732)"
+2020-07-22,"HPB",0.00139,"FWE","channel width = 3.4m, lat/long: (37.3647, -79.9733)"
+2020-07-22,"C",0.00708,"FWE","channel width = 0.9m, lat/long: (37.4094, -79.9700)"
+2020-07-22,"C",0.00414,"FWE","*sensor barely submerged, may want to set velocity to 0"
