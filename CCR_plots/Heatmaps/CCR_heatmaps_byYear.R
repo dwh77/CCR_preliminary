@@ -58,6 +58,8 @@ ccr14 <- ccr %>%
 
 ctd <- ccr19
 
+ctd <- ccr2020a
+
 df.final<-data.frame()
 
 ctd1<-ctd  %>% group_by(Date) %>% slice(which.min(abs(as.numeric(Depth_m) - 0.5)))
@@ -186,7 +188,7 @@ ctd$Depth_m <-   round(ctd$Depth_m/0.5)*0.5  # new rounding function to ensure v
 
 temp <- select(ctd, DOY, Depth_m, Temp_C) 
 do <- select(ctd, DOY, Depth_m, DO_mgL)
-# chla <- select(ctd, DOY, Depth_m, Chla_ugL)
+chla <- select(ctd, DOY, Depth_m, Chla_ugL)
 # turb <- select(ctd, DOY, Depth_m, Turb_NTU)
 # cond <- select(ctd, DOY, Depth_m, Cond_uScm)
 # spccond <- select(ctd, DOY, Depth_m, Spec_Cond_uScm)
@@ -238,15 +240,17 @@ interp_do <- interp(x=do$DOY, y = do$Depth_m, z = do$DO_mgL,        #ditto to li
                     extrap = F, linear = T, duplicate = "strip")
 interp_do <- interp2xyz(interp_do, data.frame=T)
 
+#chlorophyll a
+interp_chla <- interp(x=chla$DOY, y = chla$Depth_m, z = chla$Chla_ugL,
+                      xo = seq(min(chla$DOY), max(chla$DOY), by = .1), 
+                      yo = seq(0.1, 21.5, by = 0.01),
+                      extrap = F, linear = T, duplicate = "strip")
+interp_chla <- interp2xyz(interp_chla, data.frame=T)
+
 
 #Other variables from CTD not using now 
 {
-  #chlorophyll a
-  interp_chla <- interp(x=chla$DOY, y = chla$Depth_m, z = chla$Chla_ugL,
-                        xo = seq(min(chla$DOY), max(chla$DOY), by = .1), 
-                        yo = seq(0.1, 10.2, by = 0.01),
-                        extrap = F, linear = T, duplicate = "strip")
-  interp_chla <- interp2xyz(interp_chla, data.frame=T)
+
   
   #turbidity
   interp_turb <- interp(x=turb$DOY, y = turb$Depth_m, z = turb$Turb_NTU,
@@ -364,7 +368,7 @@ theme_black = function(base_size = 12, base_family = "") {
 }
 
 # Create a pdf so the plots can all be saved in one giant bin!
-jpeg("./CCR_plots/CCR_CTD_2015.jpg", width=1440, height=480, quality = 150) #fliped height and width values for cbind below 
+jpeg("./CCR_plots/Heatmaps/2020_CCR_heatmaps/CCR_CTD_2020.jpg", width=1700, height=600, quality = 300) #fliped height and width values for cbind below 
 
 #temperature
 p1 <- ggplot(interp_temp, aes(x=x, y=y))+
@@ -375,7 +379,7 @@ p1 <- ggplot(interp_temp, aes(x=x, y=y))+
   geom_line(data = FCR_thermo_18, aes(x=DOY, y=thermo.depth, z=NULL), color = "black", lwd = 1)+
   geom_point(data = FCR_thermo_18, aes(x=DOY, y=thermo.depth, z=NULL), pch = 21, size = 2, color = "white", fill = "black")+
   scale_fill_gradientn(colours = blue2green2red(60), na.value="gray")+
-  labs(x = "Date", y = "Depth (m)", title = "CCR 2015 Temperature Heatmap",fill=expression(''*~degree*C*''))+ #x was day of year
+  labs(x = "Date", y = "Depth (m)", title = "CCR 2020 Temperature Heatmap",fill=expression(''*~degree*C*''))+ #x was day of year
   theme_black()
 
 #dissolved oxygen
@@ -387,7 +391,19 @@ p5 <- ggplot(interp_do, aes(x=x, y=y))+
   geom_line(data = FCR_thermo_18, aes(x=DOY, y=thermo.depth, z=NULL), color = "black", lwd = 1)+
   geom_point(data = FCR_thermo_18, aes(x=DOY, y=thermo.depth, z=NULL), pch = 21, size = 2, color = "white", fill = "black")+  
   scale_fill_gradientn(colours = rev(blue2green2red(60)), na.value="gray")+
-  labs(x = "Date", y = "Depth (m)", title = "CCR 2015 Dissolved Oxygen Heatmap", fill="mg/L")+ #x was day of year 
+  labs(x = "Date", y = "Depth (m)", title = "CCR 2020 Dissolved Oxygen Heatmap", fill="mg/L")+ #x was day of year 
+  theme_black()
+
+#chla
+p2 <- ggplot(interp_chla, aes(x=x, y=y))+
+  geom_raster(aes(fill=z))+
+  scale_y_reverse()+
+  #geom_point(data = ctd, aes(x=DOY, y=Flag, z=NULL), pch = 25, size = 1.5, color = "white", fill = "black")+
+  geom_point(data = ctd, aes(x = DOY, y = 0.1, z = NULL), pch = 25, size = 3, color = "white", fill = "black")+ #to mark cast dates 
+  geom_line(data = FCR_thermo_18, aes(x=DOY, y=thermo.depth, z=NULL), color = "black", lwd = 1)+
+  geom_point(data = FCR_thermo_18, aes(x=DOY, y=thermo.depth, z=NULL), pch = 21, size = 2, color = "white", fill = "black")+  
+  scale_fill_gradientn(colours = rev(blue2green2red(60)), na.value="gray")+
+  labs(x = "Date", y = "Depth (m)", title = "CCR 2020 Chl-a Heatmap", fill=expression(paste("", mu, "g/L")))+ #x was day of year 
   theme_black()
 
 #other variables 
@@ -472,6 +488,7 @@ p5 <- ggplot(interp_do, aes(x=x, y=y))+
 grid.newpage()
 grid.draw(cbind(ggplotGrob(p1), #was rbind rinbd has one on top of eachother, cbind == side to side 
                 ggplotGrob(p5),
+                ggplotGrob(p2),
                 size = "first"))
 #ggplotGrob(p2), ggplotGrob(p3), ggplotGrob(p4), ggplotGrob(p5), ggplotGrob(p6), ggplotGrob(p7),ggplotGrob(p8),
 # size = "first"))
