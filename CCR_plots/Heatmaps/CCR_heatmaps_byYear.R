@@ -51,6 +51,26 @@ ccr13 <-ccr %>%
 ccr19 <-ccr %>% 
   filter(Year == 2019)
 
+##2020 ccr ctd 
+july8 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/070820_ccr50_halfcast.csv")
+which.max(july8$Depth_m)
+july8a <- july8[-c(947:1147),]
+
+july15 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/071520_ccr50.csv")
+which.max(july15$Depth_m)
+july15a <- july15[-c(2977:4426),]
+
+july22 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/072220_ccr50.csv")
+which.max(july22$Depth_m)
+july22a <- july22[-c(2430:4166),]
+
+july29 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/072920_ccr50.csv")
+which.max(july29$Depth_m)
+july29a <- july29[-c(1640:2979),]
+
+ccr2020 <- rbind(july8a, july15a, july22a, july29a)
+
+
 ###getting heat maps 
 #rename dataframe to ctd to fit code below 
 ccr14 <- ccr %>% 
@@ -58,7 +78,7 @@ ccr14 <- ccr %>%
 
 ctd <- ccr19
 
-ctd <- ccr2020a
+ctd <- ccr2020
 
 df.final<-data.frame()
 
@@ -115,6 +135,13 @@ df.final = rbind(ctd1, ctd2,ctd3,ctd4,ctd5,ctd6,ctd7,ctd8,ctd9,ctd10,ctd11,ctd12
 ctd <- arrange(df.final, Date)
 #ctd$Depth_m <- round(as.numeric(ctd$Depth_m), digits = 1) 
 ctd$Depth_m <-   round(ctd$Depth_m/0.5)*0.5  # new rounding function to ensure values get to nearest 0.5 
+ctd$DOY <- strftime(ctd$Date, format = "%j") #create DOY column 
+ctd$DOY <- as.double(ctd$DOY)
+
+ctd <- ctd[!duplicated(ctd),] #removed duplicated rows 
+ctd <- ctd[-c(2,37,80,123,166), ]
+
+
 
 
 ##Plots for 2013 and 2019, need to run each year through df.final command to make easier plotting
@@ -187,6 +214,7 @@ ctd$Depth_m <-   round(ctd$Depth_m/0.5)*0.5  # new rounding function to ensure v
   
 
 temp <- select(ctd, DOY, Depth_m, Temp_C) 
+head(temp)
 do <- select(ctd, DOY, Depth_m, DO_mgL)
 chla <- select(ctd, DOY, Depth_m, Chla_ugL)
 # turb <- select(ctd, DOY, Depth_m, Turb_NTU)
@@ -368,7 +396,7 @@ theme_black = function(base_size = 12, base_family = "") {
 }
 
 # Create a pdf so the plots can all be saved in one giant bin!
-jpeg("./CCR_plots/Heatmaps/2020_CCR_heatmaps/CCR_CTD_2020.jpg", width=1700, height=600, quality = 300) #fliped height and width values for cbind below 
+jpeg("./CCR_plots/Heatmaps/2020_CCR_heatmaps/CCR_CTD_2020_to29july.jpg", width=1700, height=600, quality = 300) #fliped height and width values for cbind below 
 
 #temperature
 p1 <- ggplot(interp_temp, aes(x=x, y=y))+
@@ -494,3 +522,5 @@ grid.draw(cbind(ggplotGrob(p1), #was rbind rinbd has one on top of eachother, cb
 # size = "first"))
 # end the make-pdf function. 
 dev.off()
+
+
