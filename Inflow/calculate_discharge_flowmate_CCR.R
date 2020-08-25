@@ -16,17 +16,9 @@ head(flow)
   #flow$Velocity_m.s <- ifelse(flow$Velocity_unit=="ft_s", flow$Velocity*0.3048, flow$Velocity)
 
 
-#test chaning high suspect inflow C value to 0 
-flow_test <- flow
-flow_test[61, 7] #veloctiy was 0.49 m/s here when sensor was barely submerged 
-flow_test[61, 7] <- 0 #set this value to 0 
-#when this value was 0.49 m/s discharged was 0.007 cms, when this was set to 0 discharge was 0.004
-
 # lastly calculate discharge for each interval
 flow$Discharge <- flow$Depth_m * flow$Velocity_ms * flow$WidthInterval_m
 head(flow)
-flow_test$Discharge <- flow_test$Depth_m * flow_test$Velocity_ms * flow_test$WidthInterval_m
-head(flow_test)
 
 
 # now sum by site and date to get the total discharge for that day/site
@@ -34,24 +26,36 @@ flowA <-  flow %>%
   group_by(Site, Date) %>% 
   mutate(Discharge_m3_s = sum(Discharge))
 
-
 # now subset out only the unique discharge measurements
 discharge <- flowA %>%
   select(Date, Site, Discharge_m3_s, Flowmate_ID, Notes)
 
-discharge_test <- flow_test %>% 
-  group_by(Site, Date) %>% 
-  mutate(Discharge_m3_s = sum(Discharge)) %>% 
-  select(Date, Site, Discharge_m3_s, Flowmate_ID, Notes)
-
-test <- discharge_test[61,]
-
-
 dischargeA <- discharge[!duplicated(discharge[1:3]),]
 dischargeB <- discharge[!duplicated(discharge),]
 
+flowmate_fin <- dischargeA
 
-fin <- rbind(dischargeA, test)
+#### Volumetric flow conversions #### 
+#Discharge per site in L/s was calculated in excel sheets before had: file name CCR_VolumetricFlow_discharge_data.xlsx
+# xlsx is then saved as a csv when updated so csv can be read in 
+
+volflow <- read_csv("./Inflow/CCR_VolumetricFlow_discharge_data_25aug20.csv")
+
+volflowA <- volflow[c(1,5),]
+
+volflowB <- volflowA %>% 
+  mutate(Discharge_m3_s = Discharge_Final_LperSec * 0.001) %>% 
+  mutate(Flowmate_ID = "Volumetric_manual") %>% 
+  select(Date, Site, Discharge_m3_s, Flowmate_ID, Notes)
+
+volflowB[2,2] <- "TCT"  #changing name from TCT_1 to TCT so that naming convention is same. Was TCT_1 since that row was where averaging and suming for discharge occured in xlsx file
+
+volumetric <- volflowB #renaming to match joining code 
+
+
+####bind flowmate and volumetric flow together ####
+
+fin <- rbind(flowmate_fin, volumetric)
 
 #write csv, location TBD 
 write.csv(fin, './Inflow/Discharge_Data.csv', row.names = FALSE)
