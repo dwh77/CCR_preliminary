@@ -38,11 +38,6 @@ ccr <- ctda %>%
 
 summary(ccr)
 
- ggplot(data = ccr, mapping = aes(x = DO_mgL, y = Depth_m))+
-   geom_line()+
-   facet_wrap(~Date)+
-   scale_y_continuous(trans = "reverse") #flips scale of yaxis (ie. 0 at top)
-
 
 #Plot for CCR 13 since only one cast 
 ccr13 <-ccr %>% 
@@ -53,22 +48,18 @@ ccr19 <-ccr %>%
 
 ##2020 ccr ctd 
 july8 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/070820_ccr50_halfcast.csv")
-which.max(july8$Depth_m)
-july8a <- july8[-c(947:1147),]
 
 july15 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/071520_ccr50.csv")
-which.max(july15$Depth_m)
-july15a <- july15[-c(2977:4426),]
+# which.max(july15$Depth_m) ## old code for when upcast wasn't removed from csv in processing 
+# july15a <- july15[-c(2977:4426),] ## old code for when upcast wasn't removed from csv in processing 
 
 july22 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/072220_ccr50.csv")
-which.max(july22$Depth_m)
-july22a <- july22[-c(2430:4166),]
 
 july29 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/072920_ccr50.csv")
-which.max(july29$Depth_m)
-july29a <- july29[-c(1640:2979),]
 
-ccr2020 <- rbind(july8a, july15a, july22a, july29a)
+aug05 <- read_csv("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_CTD/csv_outputs/080520_ccr50.csv")
+
+ccr2020 <- rbind(july8, july15, july22, july29, aug05)
 
 
 ###getting heat maps 
@@ -139,7 +130,7 @@ ctd$DOY <- strftime(ctd$Date, format = "%j") #create DOY column
 ctd$DOY <- as.double(ctd$DOY)
 
 ctd <- ctd[!duplicated(ctd),] #removed duplicated rows 
-ctd <- ctd[-c(2,37,80,123,166), ]
+#ctd <- ctd[-c(2,37,80,123,166), ]
 
 
 
@@ -396,7 +387,9 @@ theme_black = function(base_size = 12, base_family = "") {
 }
 
 # Create a pdf so the plots can all be saved in one giant bin!
-jpeg("./CCR_plots/Heatmaps/2020_CCR_heatmaps/CCR_CTD_2020_to29july.jpg", width=1700, height=600, quality = 300) #fliped height and width values for cbind below 
+jpeg("./CCR_plots/Heatmaps/2020_CCR_heatmaps/CCR_CTD_2020_to05aug.jpg", width=1700, height=600, quality = 300) #fliped height and width values for cbind below 
+#pdf("./CCR_plots/Heatmaps/2020_CCR_heatmaps/CCR_CTD_2020_to05aug.pdf", width=10, height=30)  
+
 
 #temperature
 p1 <- ggplot(interp_temp, aes(x=x, y=y))+
@@ -522,5 +515,40 @@ grid.draw(cbind(ggplotGrob(p1), #was rbind rinbd has one on top of eachother, cb
 # size = "first"))
 # end the make-pdf function. 
 dev.off()
+
+
+#### Flora plot #### 
+#Need to fix this eventually, this is just quick data wrangling and plotting for one date 
+
+data <- read.delim("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_fluoroprobe/08052020_ccr_50.txt")
+view(data)
+
+flora <- data %>% 
+  select(Date.Time, Total.conc., Depth) %>% 
+  rename("Date" = Date.Time,
+         "Total_conc_Phytos" = Total.conc.,
+         "Depth_m" = Depth) %>% 
+  slice(-1) %>% 
+  mutate(Total_conc_Phytos = as.numeric(Total_conc_Phytos),
+         Depth_m = as.numeric(Depth_m))
+
+floraplot <- ggplot(data = flora, mapping = aes(x = Total_conc_Phytos, y = Depth_m))+
+  #geom_point(color = "green", size = 1)+
+  geom_line(orientation = "y", color = "green", size = 1)+
+  labs(x = "Phytos (ug/L)", y = "Depth (m)")+
+  scale_y_continuous(trans = "reverse")+
+  scale_x_continuous(breaks = c(1:10))+
+  ggtitle("CCR Flora casts 05 August 2020")+
+  mytheme
+
+floraplot
+
+ ggsave(filename = "./CCR_plots/Heatmaps/Flora_plots/CCR_Flora_05aug2020.tiff", 
+        floraplot, device = "tiff", width = 230, height = 140, units = "mm")
+
+
+
+
+
 
 

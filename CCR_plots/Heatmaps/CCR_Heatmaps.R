@@ -452,37 +452,37 @@ mn <- select(wvwa, Date, DOY, Depth_m, Elevation, Mn_mgL) %>%
 interp_temp <- interp(x=temp$Date, y = temp$Elevation, z = temp$Temp_C,  #x was DOY
                       xo = seq(as.Date("2007-01-10"), as.Date("2020-07-30"), by = "day"), 
                       # xo = seq(min(temp$Date), max(temp$Date), by = "day"), 
-                      yo = seq(1100, 1170, by = 1),                     #was previously by .01
+                      yo = seq(1120, 1160, by = 1),                     #was previously by 1100 to 1170
                       extrap = F, linear = T, duplicate = "strip")
 interp_temp <- interp2xyz(interp_temp, data.frame=T)
 
 interp_do <- interp(x=do$Date, y = do$Elevation, z = do$DO_mgL,  #x was DOY
                       xo = seq(as.Date("2007-01-10"), as.Date("2020-07-30"), by = "day"), 
-                      yo = seq(1100, 1170, by = 1),                     #was previously by .01
-                      extrap = F, linear = T, duplicate = "strip")
+                    yo = seq(1120, 1160, by = 1),                     #was previously by .01
+                    extrap = F, linear = T, duplicate = "strip")
 interp_do <- interp2xyz(interp_do, data.frame=T)
 
 interp_pH <- interp(x=pH$Date, y = pH$Elevation, z = pH$pH,  #x was DOY
                       xo = seq(as.Date("2007-01-10"), as.Date("2020-07-30"), by = "day"), 
-                      yo = seq(1100, 1170, by = 1),                     #was previously by .01
-                      extrap = F, linear = T, duplicate = "strip")
+                    yo = seq(1120, 1160, by = 1),                     #was previously by .01
+                    extrap = F, linear = T, duplicate = "strip")
 interp_pH <- interp2xyz(interp_pH, data.frame=T)
 
 interp_algae <- interp(x=algae$Date, y = algae$Elevation, z = algae$Algae_cells_mL,  #x was DOY
                     xo = seq(as.Date("2007-01-10"), as.Date("2020-07-30"), by = "day"), 
-                    yo = seq(1100, 1170, by = 1),                     #was previously by .01
+                    yo = seq(1120, 1160, by = 1),                     #was previously by .01
                     extrap = F, linear = T, duplicate = "strip")
 interp_algae <- interp2xyz(interp_algae, data.frame=T)
 
 interp_fe <- interp(x=fe$Date, y = fe$Elevation, z = fe$Fe_mgL,  #x was DOY
                     xo = seq(as.Date("2007-01-10"), as.Date("2020-07-30"), by = "day"), 
-                    yo = seq(1100, 1170, by = 1),                     #was previously by .01
+                    yo = seq(1120, 1160, by = 1),                     #was previously by .01
                     extrap = F, linear = T, duplicate = "strip")
 interp_fe <- interp2xyz(interp_fe, data.frame=T)
 
 interp_mn <- interp(x=mn$Date, y = mn$Elevation, z = mn$Mn_mgL,  #x was DOY
                     xo = seq(as.Date("2007-01-10"), as.Date("2020-07-30"), by = "day"), 
-                    yo = seq(1100, 1170, by = 1),                     #was previously by .01
+                    yo = seq(1120, 1160, by = 1),                     #was previously by .01
                     extrap = F, linear = T, duplicate = "strip")
 interp_mn <- interp2xyz(interp_mn, data.frame=T)
 
@@ -542,7 +542,7 @@ theme_black = function(base_size = 12, base_family = "") {
 
 
 # Create a pdf so the plots can all be saved in one giant bin!
-pdf("./CCR_plots/Heatmaps/WVWA_CCR_2007_2020_test.pdf", width=10, height=30)  
+pdf("./CCR_plots/Heatmaps/WVWA_CCR_2007_2020_truncated1120_to1160.pdf", width=10, height=30)  
 
 #temperature
 p1 <- ggplot(interp_temp, aes(x= as.Date(x, origin = "1970-01-01"), y=y))+

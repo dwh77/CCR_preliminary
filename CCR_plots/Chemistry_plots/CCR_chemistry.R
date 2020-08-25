@@ -4,11 +4,17 @@ library(tidyverse)
 library(ggplot2)
 library(ggpubr)
 
+mytheme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                 panel.background = element_blank(), axis.line = element_line(colour = "black"),
+                 legend.key = element_blank(),legend.background = element_blank(),
+                 axis.text=element_text(size=12),
+                 axis.title=element_text(size=12,face="bold"))
 
 #read in data 
-data <- read_csv("./Final_Data_Scripts/Data/chemistry_EDI_13may2020.csv", col_types = cols(.default = "d",
+data <- read_csv("./CCR_plots/Chemistry_plots/chemistry_EDI_13may2020.csv", col_types = cols(.default = "d",
                                                                                            Reservoir = "c",
                                                                                            DateTime = "T"))
+
 
 ccr <- data %>% 
   filter(Reservoir == "CCR") %>% 
@@ -55,4 +61,76 @@ DOC <- ggplot(data = ccr, mapping = aes(x = DateTime, y = DOC_mgL))+
   ggtitle("DOC")+
   facet_wrap(~Depth_m)
 DOC
+
+
+#### GRFP #### 
+
+grfp <- data %>% 
+  filter(Reservoir == c("FCR", "BVR", "CCR")) %>% 
+  filter(Site == 50) 
+
+ccr <- data %>% 
+  filter(Reservoir == "CCR",
+         Site == 50, 
+         Depth_m == 0.1)
+
+ccrplot <- ggplot(data = ccr, mapping = aes(x = DateTime, y = DOC_mgL))+
+  geom_point()+
+  mytheme
+ccrplot
+  
+fcr <- data %>% 
+  filter(Reservoir == "FCR",
+         Site == 50, 
+         Depth_m == 0.1)
+
+fcrplot <- ggplot(data = fcr, mapping = aes(x = DateTime, y = DOC_mgL))+
+  geom_point()+
+  mytheme
+fcrplot
+
+  
+bvr <- data %>% 
+  filter(Reservoir == "BVR",
+         Site == 50, 
+         Depth_m == 0.1)
+
+bvrplot <- ggplot(data = bvr, mapping = aes(x = DateTime, y = DOC_mgL))+
+  geom_point()+
+  mytheme
+bvrplot 
+  
+
+fig <- ggarrange(fcrplot, bvrplot, ccrplot,
+                          labels = c("a", "b", "c"),
+                          ncol = 1, nrow = 3)
+
+fig
+
+mytheme_grfp <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                 panel.background = element_blank(), axis.line = element_line(colour = "black"),
+                 axis.text=element_text(size=12),
+                 axis.title=element_text(size=12,face="bold"))
+
+test <- rbind(ccr, bvr, fcr)
+
+ggplot(data = test, mapping = aes(x = DateTime, y = DOC_mgL))+
+  #geom_line()+
+  geom_point()+
+  facet_wrap(~Reservoir, nrow = 3, ncol = 1)+
+  xlab("Time")+
+  ylab(expression(paste("Chl-" , italic("a"), " (" , mu,  "g ", L^-1, ")" )))+
+  mytheme_grfp
+
+mean(ccr$DOC_mgL, na.rm = TRUE) #CCR mean DOC is 2.8 mg/L
+median(ccr$DOC_mgL, na.rm = TRUE) #CCR median DOC is 2.7 mg/L
+mean(fcr$DOC_mgL, na.rm = TRUE) #FCR mean DOC is 3.4 mg/L
+median(fcr$DOC_mgL, na.rm = TRUE) #FCR median DOC is 3.0 mg/L
+mean(bvr$DOC_mgL, na.rm = TRUE) #BVR mean DOC is 3.8 mg/L
+median(bvr$DOC_mgL, na.rm = TRUE) #BVR median DOC is 2.8 mg/L
+
+
+
+
+
 
