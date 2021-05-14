@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Carvins Cove Sampling</name>
+	<description>GPS coordinates for CCR sampling and related sampling sites</description>
+	<gx:CascadingStyle kml:id="__managed_style_0D7DC06D4B1AA1E059C8">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=000000&amp;id=2006&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_652244C9F51AA1DD5B66">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=fbc02d&amp;id=2380&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0D7055B2771AA1E059C7">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_14D1BBACB11AA1E059C7</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0D7DC06D4B1AA1E059C8</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_52A5EC1F131AA1DD5B66">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=fbc02d&amp;id=2380&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_14D1BBACB11AA1E059C7">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=000000&amp;id=2006&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_3312CC67CA1AA1DD5B66">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.84</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0A17F709621AA1DD5B64">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1D215A02D61AA1DD5B64</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_04E62D5E111AA1DD5B65</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_1C8EAFC8D41AA1DD5B66">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_20A581C0E81AA1DD5B66</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_3312CC67CA1AA1DD5B66</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_20A581C0E81AA1DD5B66">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>2.56</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_5FF584B5DF1AA1DD5B65">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=d32f2f&amp;id=2396&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<gx:displayMode>card</gx:displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_4CE6457A4B1AA1DD5B65">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_5FF584B5DF1AA1DD5B65</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_0D1D1223991AA1DD5B66</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="__managed_style_4E0C4446D11AA1DD5B66">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_52A5EC1F131AA1DD5B66</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_652244C9F51AA1DD5B66</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_1D215A02D61AA1DD5B64">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=d32f2f&amp;id=2396&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_3F2D3E7EF71AA1DD5B65">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=000000&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_24A9131C221AA1DD5B65">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=000000&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>3.2</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_0D1D1223991AA1DD5B66">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=d32f2f&amp;id=2396&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<gx:displayMode>card</gx:displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_17A61D6A5C1AA1DD5B65">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_24A9131C221AA1DD5B65</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_3F2D3E7EF71AA1DD5B65</styleUrl>
+		</Pair>
+	</StyleMap>
+	<gx:CascadingStyle kml:id="__managed_style_04E62D5E111AA1DD5B65">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/rpc/cc/icon?color=d32f2f&amp;id=2396&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff2dc0fb</color>
+				<width>4.8</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>hide</displayMode>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<Placemark id="0FC3153D1D14CC50E714">
+		<name>Sawmill; Boat day flowmate sampling spot</name>
+		<LookAt>
+			<longitude>-79.96989999889132</longitude>
+			<latitude>37.40940000001299</latitude>
+			<altitude>372.1425870395923</altitude>
+			<heading>-87.52817148329216</heading>
+			<tilt>44.99999999912077</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>818.5334238409996</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0A17F709621AA1DD5B64</styleUrl>
+		<Point>
+			<coordinates>-79.9699,37.4094,372.5587892648494</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02980F9716155C5F2297">
+		<name>Sawmill spot for boat</name>
+		<LookAt>
+			<longitude>-79.96884814660316</longitude>
+			<latitude>37.40857629468199</latitude>
+			<altitude>358.6948288207241</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>313.3071163599743</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0A17F709621AA1DD5B64</styleUrl>
+		<Point>
+			<coordinates>-79.96915518357635,37.40865141133852,361.7189357443826</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0272D1FFC614CC52A8A1">
+		<name>Boat Launch</name>
+		<LookAt>
+			<longitude>-79.94667085415652</longitude>
+			<latitude>37.38380898583284</latitude>
+			<altitude>357.8196465422065</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>30.00000007687731</gx:fovy>
+			<range>390.8094160911425</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_17A61D6A5C1AA1DD5B65</styleUrl>
+		<Point>
+			<coordinates>-79.94707401617106,37.38432090860022,356.7071396952399</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="056BAE473814CC54FFF9">
+		<name>HPB inflow; flowmate sampling spot</name>
+		<LookAt>
+			<longitude>-79.97328230392039</longitude>
+			<latitude>37.36464641795898</latitude>
+			<altitude>377.3883060200619</altitude>
+			<heading>0.1403812767667729</heading>
+			<tilt>0.9756693692649749</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>48.17127082577372</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0A17F709621AA1DD5B64</styleUrl>
+		<Point>
+			<coordinates>-79.97328999999999,37.3647,379.359983287278</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05821416B6155C5D9B2D">
+		<name>HPB inflow spot for boat</name>
+		<LookAt>
+			<longitude>-79.97059999999999</longitude>
+			<latitude>37.3664</latitude>
+			<altitude>0</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>819.0490166739429</range>
+			<altitudeMode>relativeToGround</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_4CE6457A4B1AA1DD5B65</styleUrl>
+		<Point>
+			<altitudeMode>relativeToGround</altitudeMode>
+			<coordinates>-79.97059999999999,37.3664,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="07CE2C7D6114CC55D11C">
+		<name>Dam site buoy</name>
+		<LookAt>
+			<longitude>-79.95822115045134</longitude>
+			<latitude>37.37060346448586</latitude>
+			<altitude>356.0054119708743</altitude>
+			<heading>0.1403812972908766</heading>
+			<tilt>0.9756817732616487</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>122.6065802356607</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_1C8EAFC8D41AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.95817454245876,37.37063072289559,356.4037119437058</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03F8F5E3DF14CC5C915B">
+		<name>Tinker Creek Tunnel Cove</name>
+		<LookAt>
+			<longitude>-79.94848493249296</longitude>
+			<latitude>37.39902191965251</latitude>
+			<altitude>372.8453754162779</altitude>
+			<heading>-31.63057873191454</heading>
+			<tilt>59.96303878366611</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>289.2117535983562</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_4E0C4446D11AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.94734150815496,37.39940507004274,356.5192862585338</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0437E78AED14CC5DEC64">
+		<name>CTD_20: Tinker Tunnel/Angell Branch</name>
+		<LookAt>
+			<longitude>-79.94992093245817</longitude>
+			<latitude>37.39650609973226</latitude>
+			<altitude>356.2501234146457</altitude>
+			<heading>0.9400839919198417</heading>
+			<tilt>3.525331548568436</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>330.1694456893893</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_1C8EAFC8D41AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.95065563734104,37.39675901400081,356.5923175774704</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04F1A194B714CC5F314E">
+		<name>Tinker Creek Tunnel Inlet</name>
+		<LookAt>
+			<longitude>-79.93390410810579</longitude>
+			<latitude>37.4144161619043</latitude>
+			<altitude>372.1836085498451</altitude>
+			<heading>31.23707985392994</heading>
+			<tilt>34.55767136129642</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>69.08928312675927</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_4E0C4446D11AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.93390897629403,37.41436376255863,373.3412489317369</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C7E01145514CC6045B3">
+		<name>Catawba Tunnel emergence</name>
+		<LookAt>
+			<longitude>-79.98974481467825</longitude>
+			<latitude>37.40820371661666</latitude>
+			<altitude>408.6082752396662</altitude>
+			<heading>0.1505181583692836</heading>
+			<tilt>12.57415473929309</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>139.4797682703756</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_4E0C4446D11AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.98965224565809,37.40828812701127,406.4096536374005</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="02AAEF494514CC612E74">
+		<name>Catawba Tunnel Inlet</name>
+		<LookAt>
+			<longitude>-80.02277760779469</longitude>
+			<latitude>37.42117746985228</latitude>
+			<altitude>438.3893037836232</altitude>
+			<heading>-10.35970765086716</heading>
+			<tilt>11.97385685337577</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>83.28256702990076</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_4E0C4446D11AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-80.0227751194154,37.42119573673399,439.3139412451533</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="04396837C114CC65991A">
+		<name>CTD_10: upper inflows</name>
+		<LookAt>
+			<longitude>-79.96867353100947</longitude>
+			<latitude>37.403565769005</latitude>
+			<altitude>356.3085468840708</altitude>
+			<heading>0.0006726350594800463</heading>
+			<tilt>9.314711677921213</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>362.474012835446</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_1C8EAFC8D41AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.96834550726309,37.40419495823106,356.7071240034014</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="05C2CFE09014CC66E60C">
+		<name>CTD_30: mid reservoir past HOx</name>
+		<LookAt>
+			<longitude>-79.9511</longitude>
+			<latitude>37.3841</latitude>
+			<altitude>356.0054407</altitude>
+			<heading>0.02258507997480603</heading>
+			<tilt>3.527061090955037</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>137.1757294732197</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_1C8EAFC8D41AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.95053601033844,37.38334824290304,356.4036619479222</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="0C394B88561AA1DC9123">
+		<name>Entrance to CCR fireroad for inflow driving days</name>
+		<LookAt>
+			<longitude>-79.99581806882723</longitude>
+			<latitude>37.39389725846666</latitude>
+			<altitude>381.2844600409713</altitude>
+			<heading>22.73703616247496</heading>
+			<tilt>21.42831043605411</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>377.5453163519342</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D7055B2771AA1E059C7</styleUrl>
+		<Point>
+			<coordinates>-79.9951779060642,37.39416860010046,391.4678916487204</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="03A88A94191AA1E489BB">
+		<name>Catawba Tunnel flowmate sampling (at road crossing)</name>
+		<LookAt>
+			<longitude>-79.9852432438723</longitude>
+			<latitude>37.40727648097936</latitude>
+			<altitude>389.6123301805352</altitude>
+			<heading>-81.48891101263597</heading>
+			<tilt>44.99653937277817</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>274.2797010988215</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_4E0C4446D11AA1DD5B66</styleUrl>
+		<Point>
+			<coordinates>-79.98480378568367,37.40733279613604,384.9265701620486</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="08CF4F57341AA1EFD8E6">
+		<name>Sawmill Branch flowmate sampling for driving inflow (at bridge crossing stream)</name>
+		<LookAt>
+			<longitude>-79.97707245954948</longitude>
+			<latitude>37.41686921958338</latitude>
+			<altitude>391.8307326568868</altitude>
+			<heading>112.0921680938797</heading>
+			<tilt>44.99545839286417</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>104.1493423503016</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0A17F709621AA1DD5B64</styleUrl>
+		<Point>
+			<coordinates>-79.9771097109419,37.41700455049337,393.2435530177524</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark id="079DB14C201AA22E14E6">
+		<name>CCR dam gate</name>
+		<LookAt>
+			<longitude>-79.9562528303295</longitude>
+			<latitude>37.36939408367497</latitude>
+			<altitude>369.6334189593436</altitude>
+			<heading>39.89308575739722</heading>
+			<tilt>10.06085974468739</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>274.2046983872933</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0D7055B2771AA1E059C7</styleUrl>
+		<Point>
+			<coordinates>-79.95513160606866,37.36899601700561,340.6482891789085</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
