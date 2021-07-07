@@ -1,0 +1,105 @@
+---
+title: "CCR Historical Data Exploration"
+author: "Arpita Das"
+date: "6/28/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Load needed packages
+The "#set up neede packages downloads a package if it's not already downloaded to your computer
+Then you can load in needed packages 
+These are a few common and helpful packages 
+You'll likely find more packages you will need and can add them to this section as needed
+```{r}
+#set up needed packages 
+if(!require(tidyverse)){install.packages("tidyverse")}
+if(!require(ggplot2)){install.packages("ggplot2")}
+if(!require(dplyr)){install.packages("dplyr")}
+if(!require(plotly)){install.packages("plotly")}
+
+
+#load needed packages
+library(tidyverse) 
+library(ggplot2)
+library(dplyr)
+library(plotly) #for making ggplot interactive in "Viewer" window
+
+```
+
+## Read in data 
+read in the two csv's we'll be working with and look at the format of the data 
+```{r}
+#read in and look at 2007_2021 data
+ccr_2007_2021 <- read_csv("./CCR_2007_2020_Compiled.csv")
+head(ccr_2007_2021)
+
+#read in and look at pre 2007 data
+ccr_pre_2007 <- read_csv("./CCR_historical_datasheets.csv")
+head(ccr_pre_2007)
+
+```
+
+## Format pre 2007 data 
+Format the data frame so that variables are the correct class and can be binded to the other csv.
+Some base R functions that may be helpful: "as.numeric", "as.Date". You can find additional info on these by searching in the Help tab
+
+```{r}
+#So from looking at the ccr_pre_2007 header above we know our date is not in the right format. It should be a class Date object and this will be in the format of yyyy-mm-dd (ex. 1998-07-28 for July 28th, 1998)
+
+##Here's some example code for how to fix the date issue 
+#We need to get just the day, month and year from the Date column in ccr_pre_2007
+#I didn't know how to do this from memory so I googled "how to extract the date from a string or character in r"
+    # and found this stack overflow link: https://stackoverflow.com/questions/46528912/extract-date-from-a-given-string-in-r
+    #Google and stack overflow are your friend when working in R. Some people like to leave the links they used to solve issues in there script, others like to bookmark them in there browser. 
+#I'm making a new Date column just to check that the string extract worked
+ccr_pre_2007$Date_strextract <- str_extract(ccr_pre_2007$Date, "[0-9]+/[0-9]+/[0-9]+")
+
+#so we now have have just the date from our string but it's still in the mm/dd/yyyy format. This is important to consider since in other countries dates are written as dd/mm/yyyy
+#here we can check what class our data is in
+class(ccr_pre_2007$Date_strextract)
+
+#since our data is still a character we will need to convert this to a date format
+#I'm subsetting the dates columns we created to check that our changes worked but in the final form we'll want to just edit the Date column and not make multiple different dates. 
+ccrdates <- ccr_pre_2007 %>%  #this line is saying that we're making a new data frame or object from the ccr_pre_2007 dataframe that will have the changes below applied to it
+  select(Date, Date_strextract) %>%  #Here we're just selecting the two columns we want to work with 
+  mutate(Date_asDate = as.Date(Date_strextract, "%m/%d/%y")) #Here we're converting our new date column that is a character into a date format. We have to define the order of the date (ie. the "%m/%d/%y") since the date isn't in a standard R format already
+class(ccrdates$Date_asDate)
+#now we can arrange our dataframe by Date to see what temporal coverage we're working with
+ccrdates <- ccrdates %>% 
+  dplyr::arrange(Date_asDate) #for this line we define dplyr::arrange since multiple packages have an arrange function but we want to use dplyr here
+
+#### NOW HERE WE can make actual changes to ccr_pre_2007 to get it in a format to make plots and bind with the other csv ####
+#http://stla.github.io/stlapblog/posts/Numextract.html
+
+library(stringr)
+
+ccr_pre_2007
+
+```
+
+## Format 2007-2021 data 
+Format the data frame so that variables are the correct class and can be binded to the other csv 
+
+
+```{r}
+
+```
+
+## Bind together two csv's 
+Here we will bind the two csv's so that we can easily plot and work with data frame. We can also write a csv here of the binded data frame that we can read into other R scripts for future analysis 
+
+```{r}
+#Potentialy helpful packages and functions rbind (base R), rbind.fill(plyr), dplyr package
+
+```
+
+## Plotting
+Making initial plots to visualize data
+```{r}
+
+```
+
