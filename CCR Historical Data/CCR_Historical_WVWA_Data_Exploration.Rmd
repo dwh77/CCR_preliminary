@@ -75,7 +75,24 @@ ccrdates <- ccrdates %>%
 #### NOW HERE WE can make actual changes to ccr_pre_2007 to get it in a format to make plots and bind with the other csv ####
 #http://stla.github.io/stlapblog/posts/Numextract.html
 
+#https://statisticsglobe.com/convert-character-to-numeric-in-r/
+
+ccr_pre_2007$Date_strextract <- str_extract(ccr_pre_2007$Temp_C, "[0-9]+/[0-9]+/[0-9]+")
+class(ccr_pre_2007$Temp_C_strextract)
+ccrTemp_C <- ccr_pre_2007
+
+mutate(Temp_C_asTemp_C = as.Temp_C(Temp_C_strextract, "%m/%d/%y"))
+
+
+
+
 library(stringr)
+
+x_num <- as.numeric(x)
+data <- data.frame(Temp_C, stringsAsFactors = FALSE)
+x2 <- c(Temp_C)
+
+x_num <- as.numeric(x)
 
 ccr_pre_2007
 
