@@ -77,13 +77,41 @@ ccrdates <- ccrdates %>%
 
 #https://statisticsglobe.com/convert-character-to-numeric-in-r/
 
-ccr_pre_2007$Date_strextract <- str_extract(ccr_pre_2007$Temp_C, "[0-9]+/[0-9]+/[0-9]+")
+ccr_pre_2007$Temp_C_strextract <- str_extract(ccr_pre_2007$Temp_C, "[0-9]+/[0-9]+/[0-9]+")
 class(ccr_pre_2007$Temp_C_strextract)
 ccrTemp_C <- ccr_pre_2007
-
+select(Temp_C, Temp_C_strextract)
 mutate(Temp_C_asTemp_C = as.Temp_C(Temp_C_strextract, "%m/%d/%y"))
+class(ccrTemp_C$Temp_C_asTemp_C)
+ccrTemp_C <- ccrTemp_C %>% 
+  dplyr::arrange(Temp_C_asTemp_C)
 
+ccr_pre_2007$pH_strextract <- str_extract(ccr_pre_2007$pH, "[0-9]+/[0-9]+/[0-9]+")
+class(ccr_pre_2007$pH_strextract)
+ccrpH <- ccr_pre_2007
+select(pH, pH_strextract)
+mutate(pH_aspH = as.pH(pH_strextract, "%m/%d/%y"))
+class(ccrpH$pH_aspH)
+ccrpH <- ccrpH %>% 
+  dplyr::arrange(pH_aspH)
 
+ccr_pre_2007$DO_mgl_strextract <- str_extract(ccr_pre_2007$DO_mgl, "[0-9]+/[0-9]+/[0-9]+")
+class(ccr_pre_2007$DO_mgl_strextract)
+ccrDO_mgl <- ccr_pre_2007
+select(DO_mgl, DO_mgl_strextract)
+mutate(DO_mgl_asDO_mgl = as.DO_mgl(DO_mgl_strextract, "%m/%d/%y"))
+class(ccrDO_mgl$DO_mgl_asDO_mgl)
+ccrDO_mgl <- ccrDO_mgl %>% 
+  dplyr::arrange(DO_mgl_asDO_mgl)
+
+ccr_pre_2007$Turb_strextract <- str_extract(ccr_pre_2007$Turb, "[0-9]+/[0-9]+/[0-9]+")
+class(ccr_pre_2007$Turb_strextract)
+ccrTurb <- ccr_pre_2007
+select(Turb, Turb_strextract)
+mutate(Turb_asTurb = as.Turb(Turb_strextract, "%m/%d/%y"))
+class(ccrTurb$Turb_asTurb)
+ccrTurb <- ccrTurb %>% 
+  dplyr::arrange(Turb_asTurb)
 
 
 library(stringr)
