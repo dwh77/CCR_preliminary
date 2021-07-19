@@ -97,6 +97,8 @@ ccr_pre_2007_filtered <- ccr_pre_2007 %>%
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
          Reservoir_level = as.numeric(Reservoir_level))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Depth = as.numeric(Depth)
 
 ccr_2007_2021_filtered <- ccr_pre_2007 %>%
   mutate(Temp_C = as.numeric(Temp_C),
@@ -122,7 +124,8 @@ ccr_2007_2021_filtered <- ccr_pre_2007 %>%
 ccr_2007_2021_filtered <- ccr_pre_2007 %>%
   mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
          Reservoir_level = as.numeric(Reservoir_level))
-
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Elevation = as.numeric(Elevation))
 
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(Date = str_extractabove ,
