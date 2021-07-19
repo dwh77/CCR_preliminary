@@ -80,9 +80,6 @@ ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(DO_mgL = as.numeric(DO_mgL),
          Turb = as.numeric(Turb))
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
-  mutate(DO_mgL = as.numeric(DO_mgL),
-         Turb = as.numeric(Turb))
-ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(Color = as.numeric(Color),
          Odor = as.numeric(Odor))
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
@@ -98,7 +95,7 @@ ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
          Reservoir_level = as.numeric(Reservoir_level))
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
-  mutate(Depth = as.numeric(Depth)
+  mutate(Elevation = as.numeric(Elevation))
 
 ccr_2007_2021_filtered <- ccr_pre_2007 %>%
   mutate(Temp_C = as.numeric(Temp_C),
@@ -127,11 +124,11 @@ ccr_2007_2021_filtered <- ccr_pre_2007 %>%
 ccr_2007_2021_filtered <- ccr_pre_2007 %>%
   mutate(Elevation = as.numeric(Elevation))
 
-ccr_pre_2007_filtered <- ccr_pre_2007 %>%
-  mutate(Date = str_extractabove ,
-         Date = )
-  mutate(Temp_C = as.numeric(Temp_C),
-         pH = as.numeric(pH))
+#ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  #mutate(Date = str_extractabove ,
+         #Date = )
+  #mutate(Temp_C = as.numeric(Temp_C),
+         #pH = as.numeric(pH))
   
 
 class(ccr_pre_2007_filtered$Temp_C)
@@ -141,60 +138,6 @@ class(ccr_pre_2007_filtered$Temp_C)
 
 #https://statisticsglobe.com/convert-character-to-numeric-in-r/
 
-ccr_pre_2007$Temp_C_strextract <- str_extract(ccr_pre_2007$Temp_C, "[0-9]+/[0-9]+/[0-9]+")
-class(ccr_pre_2007$Temp_C_strextract)
-ccrTemp_C <- ccr_pre_2007
-select(Temp_C, Temp_C_strextract)
-mutate(Temp_C_asTemp_C = as.Temp_C(Temp_C_strextract, "%m/%d/%y"))
-class(ccrTemp_C$Temp_C_asTemp_C)
-ccrTemp_C <- ccrTemp_C %>% 
-  dplyr::arrange(Temp_C_asTemp_C)
-
-ccr_pre_2007$pH_strextract <- str_extract(ccr_pre_2007$pH, "[0-9]+/[0-9]+/[0-9]+")
-class(ccr_pre_2007$pH_strextract)
-ccrpH <- ccr_pre_2007
-select(pH, pH_strextract)
-mutate(pH_aspH = as.pH(pH_strextract, "%m/%d/%y"))
-class(ccrpH$pH_aspH)
-ccrpH <- ccrpH %>% 
-  dplyr::arrange(pH_aspH)
-
-ccr_pre_2007$DO_mgl_strextract <- str_extract(ccr_pre_2007$DO_mgl, "[0-9]+/[0-9]+/[0-9]+")
-class(ccr_pre_2007$DO_mgl_strextract)
-ccrDO_mgl <- ccr_pre_2007
-select(DO_mgl, DO_mgl_strextract)
-mutate(DO_mgl_asDO_mgl = as.DO_mgl(DO_mgl_strextract, "%m/%d/%y"))
-class(ccrDO_mgl$DO_mgl_asDO_mgl)
-ccrDO_mgl <- ccrDO_mgl %>% 
-  dplyr::arrange(DO_mgl_asDO_mgl)
-
-ccr_pre_2007$Turb_strextract <- str_extract(ccr_pre_2007$Turb, "[0-9]+/[0-9]+/[0-9]+")
-class(ccr_pre_2007$Turb_strextract)
-ccrTurb <- ccr_pre_2007
-select(Turb, Turb_strextract)
-mutate(Turb_asTurb = as.Turb(Turb_strextract, "%m/%d/%y"))
-class(ccrTurb$Turb_asTurb)
-ccrTurb <- ccrTurb %>% 
-  dplyr::arrange(Turb_asTurb)
-
-
-library(stringr)
-
-x_num <- as.numeric(x)
-data <- data.frame(Temp_C, stringsAsFactors = FALSE)
-x2 <- c(Temp_C)
-
-x_num <- as.numeric(x)
-
-ccr_pre_2007
-
-```
-
-## Format 2007-2021 data 
-Format the data frame so that variables are the correct class and can be binded to the other csv 
-
-
-```{r}
 
 ```
 
@@ -203,6 +146,8 @@ Here we will bind the two csv's so that we can easily plot and work with data fr
 
 ```{r}
 #Potentialy helpful packages and functions rbind (base R), rbind.fill(plyr), dplyr package
+
+
 
 ```
 
