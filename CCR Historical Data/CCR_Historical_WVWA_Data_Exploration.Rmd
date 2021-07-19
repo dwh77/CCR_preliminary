@@ -72,6 +72,67 @@ class(ccrdates$Date_asDate)
 ccrdates <- ccrdates %>% 
   dplyr::arrange(Date_asDate) #for this line we define dplyr::arrange since multiple packages have an arrange function but we want to use dplyr here
 
+#### chaning other varioables to numeric
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Temp_C = as.numeric(Temp_C),
+         pH = as.numeric(pH))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(DO_mgL = as.numeric(DO_mgL),
+         Turb = as.numeric(Turb))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(DO_mgL = as.numeric(DO_mgL),
+         Turb = as.numeric(Turb))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Color = as.numeric(Color),
+         Odor = as.numeric(Odor))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Algae_cells_mL = as.numeric(Algae_cells_mL),
+         Fe_mgL = as.numeric(Fe_mgL))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Mn_mgL = as.numeric(Mn_mgL),
+         Alkalinity = as.numeric(Alkalinity))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Hardness = as.numeric(Hardness),
+         CO2 = as.numeric(CO2))
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
+         Reservoir_level = as.numeric(Reservoir_level))
+
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Temp_C = as.numeric(Temp_C),
+         pH = as.numeric(pH))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(DO_mgL = as.numeric(DO_mgL),
+         Turb = as.numeric(Turb))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(DO_mgL = as.numeric(DO_mgL),
+         Turb = as.numeric(Turb))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Color = as.numeric(Color),
+         Odor = as.numeric(Odor))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Algae_cells_mL = as.numeric(Algae_cells_mL),
+         Fe_mgL = as.numeric(Fe_mgL))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Mn_mgL = as.numeric(Mn_mgL),
+         Alkalinity = as.numeric(Alkalinity))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Hardness = as.numeric(Hardness),
+         CO2 = as.numeric(CO2))
+ccr_2007_2021_filtered <- ccr_pre_2007 %>%
+  mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
+         Reservoir_level = as.numeric(Reservoir_level))
+
+
+ccr_pre_2007_filtered <- ccr_pre_2007 %>%
+  mutate(Date = str_extractabove ,
+         Date = )
+  mutate(Temp_C = as.numeric(Temp_C),
+         pH = as.numeric(pH))
+  
+
+class(ccr_pre_2007_filtered$Temp_C)
+
 #### NOW HERE WE can make actual changes to ccr_pre_2007 to get it in a format to make plots and bind with the other csv ####
 #http://stla.github.io/stlapblog/posts/Numextract.html
 
