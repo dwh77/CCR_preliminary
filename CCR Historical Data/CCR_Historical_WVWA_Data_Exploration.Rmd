@@ -147,6 +147,7 @@ Here we will bind the two csv's so that we can easily plot and work with data fr
 ```{r}
 #Potentialy helpful packages and functions rbind (base R), rbind.fill(plyr), dplyr package
 
+rbind(ccr_pre_2007_filtered, ccr_2007_2021_filtered)
 
 ```
 
