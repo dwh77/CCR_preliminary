@@ -73,6 +73,8 @@ ccrdates <- ccrdates %>%
   dplyr::arrange(Date_asDate) #for this line we define dplyr::arrange since multiple packages have an arrange function but we want to use dplyr here
 
 #### chaning other varioables to numeric
+
+#Pre 2007
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(Temp_C = as.numeric(Temp_C),
          pH = as.numeric(pH))
@@ -92,10 +94,10 @@ ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   mutate(Hardness = as.numeric(Hardness),
          CO2 = as.numeric(CO2))
 ccr_pre_2007_filtered <- ccr_pre_2007 %>%
-  mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
-         Reservoir_level = as.numeric(Reservoir_level))
-ccr_pre_2007_filtered <- ccr_pre_2007 %>%
-  mutate(Elevation = as.numeric(Elevation))
+  mutate(Reservoir_level = as.numeric(Reservoir_level),
+         Elevation = as.numeric(Elevation))
+
+#2007-2021
 
 ccr_2007_2021_filtered <- ccr_pre_2007 %>%
   mutate(Temp_C = as.numeric(Temp_C),
@@ -119,10 +121,8 @@ ccr_2007_2021_filtered <- ccr_pre_2007 %>%
   mutate(Hardness = as.numeric(Hardness),
          CO2 = as.numeric(CO2))
 ccr_2007_2021_filtered <- ccr_pre_2007 %>%
-  mutate(Predominant_algae_organism = as.numeric(Predominant_algae_organism),
-         Reservoir_level = as.numeric(Reservoir_level))
-ccr_2007_2021_filtered <- ccr_pre_2007 %>%
-  mutate(Elevation = as.numeric(Elevation))
+  mutate(Reservoir_level = as.numeric(Reservoir_level),
+         Elevation = as.numeric(Elevation))
 
 #ccr_pre_2007_filtered <- ccr_pre_2007 %>%
   #mutate(Date = str_extractabove ,
@@ -147,7 +147,7 @@ Here we will bind the two csv's so that we can easily plot and work with data fr
 ```{r}
 #Potentialy helpful packages and functions rbind (base R), rbind.fill(plyr), dplyr package
 
-
+rbind(ccr_pre_2007_filtered, ccr_2007_2021_filtered)
 
 ```
 
