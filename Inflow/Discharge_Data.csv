@@ -8,5 +8,21 @@
 2020-08-05 00:00:00,"TCS",0.00029,"FWE",NA
 2020-08-19 00:00:00,"HPB",0.00337,"FWE",NA
 2020-08-19 00:00:00,"C",0.0258,"FWE",NA
+2020-09-23 00:00:00,"SMB",0.0033,"FWE","channel width = 1.8m; DO: 88.1% sat, 9.10 mg/L; First time measuring discharge at this point on SMB (above bridge off fire road)"
+2020-09-23 00:00:00,"C",0.00745,"FWE","Spot on sawmill close to where it enter the reservoir; DO% = 90.4, DO mg/L = 9.37"
+2020-09-23 00:00:00,"HPB",0.00216,"FWE","Full width = 2.4m, not flow past 1m; DO% = 99.5, mg/L = 10.36"
+2021-04-19 00:00:00,"HPB",0.02913,"FWE",NA
+2021-04-19 00:00:00,"Inf C",0.0889,"FWE","Now SMB (this is at point near cove of reservoir)"
+2021-04-19 00:00:00,"TCT",0.00193,"FWE","*using flowmate in stream, level to high to use red bucket method"
+2021-04-19 00:00:00,"TCT_angelbranch",0.00908,"FWE","*Measure flow in angell branch that was flowing in near TCT (usually not flowing)"
+2021-05-11 00:00:00,"CCT_belowtunnel",0.00227,"FWE","Discharge right below the tunnel (hard to get to)"
+2021-05-11 00:00:00,"CCT_road",0.002195,"FWE","Discharge where stream crosses road"
+2021-05-11 00:00:00,"SMB",0.01422,"FWE","SMB from fireroad (now the sampling spot for what was formerly called inf C"
+2021-05-11 00:00:00,"TCT_angelbranch",0.003035,"FWE","Angel branch was flowing this day"
+2021-05-11 00:00:00,"TCT",0.001655,"FWE","Measuring inside the tunnel do to water level being to high for bucket method"
+2021-07-13 00:00:00,"SMB",0.00266,"FWE",NA
 2020-08-05 01:24:00,"TCT",0.002921122042,"Volumetric_manual",NA
 2020-08-19 15:27:00,"TCT",0.002859900979,"Volumetric_manual",NA
+2020-09-23 12:00:00,"CCT",0.000924602096,"Volumetric_manual",NA
+2020-09-23 12:00:00,"TCT",0.003840935197,"Volumetric_manual",NA
+2021-07-13 12:14:00,"TCT",0.00268043385,"Volumetric_manual","Most flow from one opening, there was a small amount of unmeasurable flow from one opening"

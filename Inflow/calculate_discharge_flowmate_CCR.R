@@ -39,9 +39,10 @@ flowmate_fin <- dischargeA
 #Discharge per site in L/s was calculated in excel sheets before had: file name CCR_VolumetricFlow_discharge_data.xlsx
 # xlsx is then saved as a csv when updated so csv can be read in 
 
-volflow <- read_csv("./Inflow/CCR_VolumetricFlow_discharge_data_25aug20.csv")
+volflow <- read_csv("./Inflow/CCR_VolumetricFlow_discharge_data.csv")
 
-volflowA <- volflow[c(1,5),]
+volflowA <- volflow[c(1,5,13,25,34),] #selecting rows that have the Discharge Final L per site values
+
 
 volflowB <- volflowA %>% 
   mutate(Discharge_m3_s = Discharge_Final_LperSec * 0.001) %>% 
@@ -49,6 +50,9 @@ volflowB <- volflowA %>%
   select(Date, Site, Discharge_m3_s, Flowmate_ID, Notes)
 
 volflowB[2,2] <- "TCT"  #changing name from TCT_1 to TCT so that naming convention is same. Was TCT_1 since that row was where averaging and suming for discharge occured in xlsx file
+volflowB[3,2] <- "CCT" #same renamgin as above
+volflowB[4,2] <- "TCT"
+volflowB[5,2] <- "TCT"
 
 volumetric <- volflowB #renaming to match joining code 
 
