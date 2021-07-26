@@ -60,25 +60,25 @@ Some base R functions that may be helpful: "as.numeric", "as.Date". You can find
     # and found this stack overflow link: https://stackoverflow.com/questions/46528912/extract-date-from-a-given-string-in-r
     #Google and stack overflow are your friend when working in R. Some people like to leave the links they used to solve issues in there script, others like to bookmark them in there browser. 
 #I'm making a new Date column just to check that the string extract worked
-ccr_pre_2007$Date_strextract <- str_extract(ccr_pre_2007$Date, "[0-9]+/[0-9]+/[0-9]+")
+#ccr_pre_2007$Date_strextract <- str_extract(ccr_pre_2007$Date, "[0-9]+/[0-9]+/[0-9]+")
 
 #so we now have have just the date from our string but it's still in the mm/dd/yyyy format. This is important to consider since in other countries dates are written as dd/mm/yyyy
 #here we can check what class our data is in
-class(ccr_pre_2007$Date_strextract)
+#class(ccr_pre_2007$Date_strextract)
 
 #since our data is still a character we will need to convert this to a date format
 #I'm subsetting the dates columns we created to check that our changes worked but in the final form we'll want to just edit the Date column and not make multiple different dates. 
-ccrdates <- ccr_pre_2007 %>%  #this line is saying that we're making a new data frame or object from the ccr_pre_2007 dataframe that will have the changes below applied to it
-  select(Date, Date_strextract) %>%  #Here we're just selecting the two columns we want to work with 
-  mutate(Date_asDate = as.Date(Date_strextract, "%m/%d/%y")) #Here we're converting our new date column that is a character into a date format. We have to define the order of the date (ie. the "%m/%d/%y") since the date isn't in a standard R format already
-class(ccrdates$Date_asDate)
+#ccrdates <- ccr_pre_2007 %>%  #this line is saying that we're making a new data frame or object from the ccr_pre_2007 dataframe that will have the changes below applied to it
+  #select(Date, Date_strextract) %>%  #Here we're just selecting the two columns we want to work with 
+  #mutate(Date_asDate = as.Date(Date_strextract, "%m/%d/%y")) #Here we're converting our new date column that is a character into a date format. We have to define the order of the date (ie. the "%m/%d/%y") since the date isn't in a standard R format already
+#class(ccrdates$Date_asDate)
 #now we can arrange our dataframe by Date to see what temporal coverage we're working with
-ccrdates <- ccrdates %>% 
-  dplyr::arrange(Date_asDate) #for this line we define dplyr::arrange since multiple packages have an arrange function but we want to use dplyr here
+#ccrdates <- ccrdates %>% 
+  #dplyr::arrange(Date_asDate) #for this line we define dplyr::arrange since multiple packages have an arrange function but we want to use dplyr here
 
 #testing combining both changes into one line
-ccr_dates_test <- as.Date(str_extract(ccr_2007_2021$Date, "[0-9]+/[0-9]+/[0-9]+"), "%m/%d/%Y")
-  view(ccr_dates_test)
+#ccr_dates_test <- as.Date(str_extract(ccr_2007_2021$Date, "[0-9]+/[0-9]+/[0-9]+"), "%m/%d/%Y")
+  #view(ccr_dates_test)
 
 #### changing other variables to numeric
 #Old formatting
@@ -210,7 +210,7 @@ Here we will bind the two csv's so that we can easily plot and work with data fr
 ```{r}
 #Potentialy helpful packages and functions rbind (base R), rbind.fill(plyr), dplyr package
 
-rbind(ccr_pre_2007_filtered, ccr_2007_2021_filtered) #but this doesn't capture the unique columns in the two dataframes
+#rbind(ccr_pre_2007_filtered, ccr_2007_2021_filtered) #but this doesn't capture the unique columns in the two dataframes
 
 #adding missing columns for each df
 ccr_2007_2021_filtered$CO2 <- NA
@@ -231,4 +231,6 @@ binded_data <- binded_data %>%
 write.csv(binded_data, "./Final_CCR_WVWA_data_binded.csv", row.names = FALSE)
 
 ```
+
+
 
