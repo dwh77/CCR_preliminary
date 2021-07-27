@@ -1,0 +1,127 @@
+---
+title: "CCR Historical WVWA plotting"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+##Load needed packages
+The "#set up needed packages downloads a package if it's not already downloaded to your computer
+Then you can load in needed packages 
+These are a few common and helpful packages 
+You'll likely find more packages you will need and can add them to this section as needed
+```{r}
+#set up needed packages 
+if(!require(tidyverse)){install.packages("tidyverse")}
+if(!require(ggplot2)){install.packages("ggplot2")}
+if(!require(dplyr)){install.packages("dplyr")}
+if(!require(plotly)){install.packages("plotly")}
+
+
+#load needed packages
+library(tidyverse) 
+library(ggplot2)
+library(dplyr)
+library(plotly) #for making ggplot interactive in "Viewer" window
+library(scales)
+
+```
+
+## Read in binded data
+
+
+```{r}
+
+ccr_historical_binded <- read.csv("./Final_CCR_WVWA_data_binded.csv")
+ccr_historical_binded$Date <- as.Date(ccr_historical_binded$Date) #chaning date to class date since it was read in as a character ( I caught this when trying to plot temp)
+
+```
+
+## Making plots for Temperature 
+
+!!!! Don't run this chunk all at once!!! I would run through this line by line and look at the plots as they're generated to get a better understanding of what's happening
+
+```{r}
+
+## First we'll just plot all of the temperature data
+temp <- ggplot(data = ccr_historical_binded, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") + #This is the x-axis only shows the year so it's legible. Try making this plot without this line and you'll see the x-axis is illegible
+  theme_bw()  #Theme_bw is just a plotting theme I like that's a little cleaner than the default ggplot theme
+
+temp #This winds up being hard to interpret (remember we have different elevations in the data set)
+
+## So lets trying plotting temp two different ways 
+
+temp_elevationbycolor <- ggplot(data = ccr_historical_binded, mapping = aes(x = Date, y = Temp_C, col = Elevation))+
+  geom_point()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  theme_bw()
+
+temp_elevationbycolor #this one is better than the initial but still tough to interpret
+
+temp_facetwrap <- ggplot(data = ccr_historical_binded, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  theme_bw()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  facet_wrap(~Elevation)
+
+temp_facetwrap #this is better since we can at least see how each depths temp varried 
+
+
+## These are still hard to interpret so let's try using plottly to zoom in 
+
+ggplotly(temp_elevationbycolor)
+
+
+## lets also trying look at one specific depth over a certain period of time
+#to do this, I like to make a subset of our larger data frame and plot that
+#lets look at 1150 elevation in the 2010's
+
+ccr_1150_2010s <- ccr_historical_binded %>% 
+  filter(Date >= "2010-01-01",
+         Date <= "2020-01-01",
+         Elevation == 1150)
+
+
+temp_1150_2010s <- ggplot(data = ccr_1150_2010s, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  geom_line()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") + 
+  labs(x = "Year", y = "Temp (C)")+
+  ggtitle("Temp at 1150ft elevation in 2010's")+
+  theme_bw() 
+
+temp_1150_2010s #now this is a lot easier to visualize than some of our previous plots but we're missing a lot of our data
+
+
+#### Keep exploring different ways to visualize the data that seem interesting to you!
+
+
+
+
+```
+
+
+## Making plots for Dissolved oxygen 
+add plots for DO here (making a new chunk for each variable will make the script easier to follow)
+```{r}
+
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
