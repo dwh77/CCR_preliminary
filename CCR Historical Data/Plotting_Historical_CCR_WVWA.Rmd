@@ -109,7 +109,29 @@ temp_1150_2010s #now this is a lot easier to visualize than some of our previous
 add plots for DO here (making a new chunk for each variable will make the script easier to follow)
 ```{r}
 
+temp_facetwrap <- ggplot(data = ccr_historical_binded, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  theme_bw()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  facet_wrap(~Elevation)
 
+temp_facetwrap
+
+DO_mgL_facetwrap <- ggplot(data = ccr_historical_binded, mapping = aes(x = Date, y = DO_mgL))+
+  geom_point()+
+  theme_bw()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  facet_wrap(~Elevation)
+
+DO_mgL_facetwrap
+
+Temp_C_facetwrap <- ggplot(data = ccr_historical_binded, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  theme_bw()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") +
+  facet_wrap(~Elevation)
+
+Temp_C_facetwrap
 
 ```
 
