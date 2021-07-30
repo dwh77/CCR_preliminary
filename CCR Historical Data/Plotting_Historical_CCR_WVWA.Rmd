@@ -139,21 +139,81 @@ add plots for DO here (making a new chunk for each variable will make the script
 
 #_____________________________________________________________________________________________________
 
-ccr_1150_2010s <- ccr_historical_binded %>% 
-  filter(Date >= "2010-01-01",
-         Date <= "2020-01-01",
+ccr_1150_2000s <- ccr_historical_binded %>% 
+  filter(Date >= "2000-01-01",
+         Date <= "2009-01-01",
          Elevation == 1150)
 
-
-temp_1150_2010s <- ggplot(data = ccr_1150_2010s, mapping = aes(x = Date, y = Temp_C))+
+temp_1150_2000s <- ggplot(data = ccr_1150_2000s, mapping = aes(x = Date, y = Temp_C))+
   geom_point()+
   geom_line()+
   scale_x_date(date_breaks = "1 year", date_labels = "%y") + 
   labs(x = "Year", y = "Temp (C)")+
-  ggtitle("Temp at 1150ft elevation in 2010's")+
+  ggtitle("Temp at 1150ft elevation in 2000's")+
   theme_bw() 
 
-temp_1150_2010s #now this is a lot easier to visualize than some of our previous plots but we're missing a lot of our data
+temp_1150_2000s #now this is a lot easier to visualize than some of our previous plots but we're missing a lot of our data
+
+ccr_1140_2000s <- ccr_historical_binded %>% 
+  filter(Date >= "2000-01-01",
+         Date <= "2009-01-01",
+         Elevation == 1140)
+
+
+temp_1140_2000s <- ggplot(data = ccr_1140_2000s, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  geom_line()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") + 
+  labs(x = "Year", y = "Temp (C)")+
+  ggtitle("Temp at 1150ft elevation in 2000's")+
+  theme_bw() 
+
+temp_1140_2000s#1140
+
+ccr_1130_2000s <- ccr_historical_binded %>% 
+  filter(Date >= "2000-01-01",
+         Date <= "2009-01-01",
+         Elevation == 1130)
+
+temp_1130_2000s <- ggplot(data = ccr_1140_2000s, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  geom_line()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") + 
+  labs(x = "Year", y = "Temp (C)")+
+  ggtitle("Temp at 1150ft elevation in 2000's")+
+  theme_bw() 
+
+temp_1130_2000s#1130
+
+ccr_1120_2000s <- ccr_historical_binded %>% 
+  filter(Date >= "2000-01-01",
+         Date <= "2009-01-01",
+         Elevation == 1120)
+
+temp_1120_2000s <- ggplot(data = ccr_1120_2000s, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  geom_line()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") + 
+  labs(x = "Year", y = "Temp (C)")+
+  ggtitle("Temp at 1150ft elevation in 2000's")+
+  theme_bw() 
+
+temp_1120_2000s#1200
+
+ccr_1110_2000s <- ccr_historical_binded %>% 
+  filter(Date >= "2000-01-01",
+         Date <= "2009-01-01",
+         Elevation == 1110)
+
+temp_1110_2000s <- ggplot(data = ccr_1110_2000s, mapping = aes(x = Date, y = Temp_C))+
+  geom_point()+
+  geom_line()+
+  scale_x_date(date_breaks = "1 year", date_labels = "%y") + 
+  labs(x = "Year", y = "Temp (C)")+
+  ggtitle("Temp at 1110ft elevation in 2000's")+
+  theme_bw() 
+
+temp_1110_2000s
 
 ```
 
