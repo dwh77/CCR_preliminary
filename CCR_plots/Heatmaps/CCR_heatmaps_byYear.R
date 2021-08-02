@@ -519,18 +519,64 @@ dev.off()
 
 #### Flora plot #### 
 #Need to fix this eventually, this is just quick data wrangling and plotting for one date 
+mytheme <- theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+                 panel.background = element_blank(), axis.line = element_line(colour = "black"),
+                 legend.key = element_blank(),legend.background = element_blank(),
+                 axis.text=element_text(size=16),
+                 axis.title=element_text(size=16,face="bold"))
 
-data <- read.delim("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_fluoroprobe/08052020_ccr_50.txt")
+data <- read.delim("C:/Users/dwh18/OneDrive/Desktop/R_Projects/Reservoirs/Data/DataNotYetUploadedToEDI/Raw_fluoroprobe/20210728_CCR_50.txt")
 view(data)
 
 flora <- data %>% 
-  select(Date.Time, Total.conc., Depth) %>% 
+  select(Date.Time, Total.conc., Depth, Green.Algae, Bluegreen, Diatoms, Cryptophyta) %>% 
   rename("Date" = Date.Time,
          "Total_conc_Phytos" = Total.conc.,
-         "Depth_m" = Depth) %>% 
+         "Depth_m" = Depth,
+         "Greens" = Green.Algae) %>% 
   slice(-1) %>% 
   mutate(Total_conc_Phytos = as.numeric(Total_conc_Phytos),
+         Greens = as.numeric(Greens),
+         Bluegreen = as.numeric(Bluegreen),
+         Diatoms  = as.numeric(Diatoms),
+         Cryptophyta = as.numeric(Cryptophyta),
          Depth_m = as.numeric(Depth_m))
+
+ccr_chla <- ggplot(data = flora)+
+  geom_path(aes(x = Total_conc_Phytos, y = Depth_m*-3.28084+1167.1), col = "darkgreen", size=1.2)+
+  xlab("Chlorophyll a (micrograms per liter)")+
+  ylab("Elevation (feet)")+
+  scale_y_continuous(breaks = c(1100,1110, 1120, 1130, 1140, 1150, 1160, 1170))+
+  geom_hline(yintercept=1130,size=1.1)+
+  geom_hline(yintercept=1140,size=1.1)+
+  geom_hline(yintercept=1150,size=1.1)+
+  ggtitle("CCR Total Phytoplankton (micrograms per liter) 28July2021")+
+  mytheme
+ccr_chla
+
+ccr_chla_cyanos <- ggplot(data = flora)+
+  geom_path(aes(x = Bluegreen, y = Depth_m*-3.28084+1167.1), col = "cyan", size=1.2)+
+  xlab("Chlorophyll a (micrograms per liter)")+
+  ylab("Elevation (feet)")+
+  scale_y_continuous(breaks = c(1100,1110, 1120, 1130, 1140, 1150, 1160, 1170))+
+  geom_hline(yintercept=1130,size=1.1)+
+  geom_hline(yintercept=1140,size=1.1)+
+  geom_hline(yintercept=1150,size=1.1)+
+  ggtitle("CCR Bluegreens (micrograms per liter) 28July2021")+
+  mytheme
+ccr_chla_cyanos
+
+ccr_chla_greens <- ggplot(data = flora)+
+  geom_path(aes(x = Cryptophyta, y = Depth_m*-3.28084+1167.1), col = "cyan", size=1.2)+
+  xlab("Chlorophyll a (micrograms per liter)")+
+  ylab("Elevation (feet)")+
+  scale_y_continuous(breaks = c(1100,1110, 1120, 1130, 1140, 1150, 1160, 1170))+
+  geom_hline(yintercept=1130,size=1.1)+
+  geom_hline(yintercept=1140,size=1.1)+
+  geom_hline(yintercept=1150,size=1.1)+
+  ggtitle("CCR Green Algae (micrograms per liter) 28July2021")+
+  mytheme
+ccr_chla_greens
 
 floraplot <- ggplot(data = flora, mapping = aes(x = Total_conc_Phytos, y = Depth_m))+
   #geom_point(color = "green", size = 1)+
